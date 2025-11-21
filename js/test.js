@@ -242,12 +242,18 @@ $(".answer").on("compositionend", function () {
 });
 
 
-function disableButtons(movebuttons) {
-    movebuttons.forEach(btn => btn.disabled = true);
+function disableButtons() {
+    for (let i = 0; i < 4; i++) {
+        document.getElementById("move[i]").classList.add("hidden");
+    }
+
 }
 
-function enableButtons(movebuttons) {
-    movebuttons.forEach(btn => btn.disabled = false);
+function enableButtons() {
+    for (let i = 0; i < 4; i++) {
+        document.getElementById("move[i]").classList.remove("hidden");
+    }
+
 }
 
 bonusstage.addEventListener("click", () => {
@@ -313,8 +319,7 @@ function battlestart() {
     for (let i = 0; i < 4; i++) {
         // 技の実行
         movebuttons[i].onclick = () => {
-            disableButtons(movebuttons);
-            document.querySelector(".move").classList.add("hidden");
+            disableButtons();
             user_pokemon.moves[i].action(user_pokemon, opp_pokemon);
             updateHP(user_pokemon, opp_pokemon);
             if (opp_pokemon.hp <= 0) {
@@ -359,8 +364,7 @@ function battlestart() {
                             updatePokemon(user_pokemon,opp_pokemon);
                         }, 1000);
                     }
-                    enableButtons(movebuttons);
-                    document.querySelector(".move").classList.remove("hidden");
+                    enableButtons();
                 }, 2000);
             }
         };
