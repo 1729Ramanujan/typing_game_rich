@@ -18,7 +18,10 @@
     <audio id="bgm_result" src="music/result.mp3" loop></audio>
     <audio id="button_push" src="music/push.mp3" loop></audio>
     <audio id="bgm_right" src="music/right.mp3"></audio>
-    <audio id="bgm_pokemon_battle" src="music/pokemon_battle.mp3"></audio>
+    <audio id="bgm_attack" src="music/attack.mp3"></audio>
+    <audio id="bgm_swoarddance" src="music/swoarddance.mp3"></audio>
+    <audio id="bgm_pokemon_battle" src="music/pokemon_battle.mp3" loop></audio>
+    <audio id="bgm_dragondance" src="music/dragondance.mp3" ></audio>
     <div id="start" class="screen">
         <p class="title1">ボケモンタイピング</p>
         <button class="startbutton1">かんたん</button>
@@ -63,8 +66,16 @@
     </div>
 
     <div id="bonus" class="screen">
-        <div class="oppname">
+        <div class="nameopp">
             <p class="enemy" style="font-size: 25px;"></p>
+            <div class="statusopp">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball12" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball11" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball10" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball9" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball8" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball7" class="pokeball">
+            </div>
         </div>
         <div class="infoopp">
             <div class="hpopp">
@@ -76,7 +87,17 @@
             <img id="userpokemon" class="userpokemon">
             <img id="opppokemon" class="opppokemon">
         </div>
-        <p class="friend" style="font-size: 25px;"></p>
+        <div class="nameuser">
+            <p class="friend" style="font-size: 25px;"></p>
+            <div class="statususer">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball1" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball2" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball3" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball4" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball5" class="pokeball">
+                <img src="img/pokeball.png" alt="ポケモンボール" id="pokeball6" class="pokeball">
+            </div>
+        </div>
         <info class="infouser">
             <div class="hpuser">
                 <div class="hpcontentuser"></div>
@@ -105,6 +126,7 @@
     <script src="js/data.js"></script>
     <!-- test.jsが最後 -->
     <script src="js/test.js"></script>
+    <script src="js/pokemon_game.js"></script>
 </body>
 
 </html>

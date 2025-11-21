@@ -325,11 +325,19 @@ body {
 
 .enemy {
     text-align: right;
-    margin-right: 275px;
+    margin-right: 65px;
     align-items: flex-end;
     margin-bottom: 0;
 }
-
+.statusopp{
+    padding-bottom: 0;
+    height: 30px;
+}
+.nameopp{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
 .infoopp {
     display: grid;
     grid-template-columns: 300px 100px;
@@ -362,12 +370,27 @@ body {
     transition: width 0.5s;
     margin-top: 0px;
 }
-
+.nameuser{
+    display: flex;
+    align-items: flex-end;
+}
+.statusuer{
+    padding-bottom: 0;
+    height: 30px;
+    margin-left: 30px;
+}
 .friend {
     text-align: left;
     margin-left: 10px;
     align-items: flex-end;
     margin-bottom: 0;
+    padding-right: 60px;
+}
+.pokeball{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .infouser {
