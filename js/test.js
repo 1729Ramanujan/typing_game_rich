@@ -281,6 +281,14 @@ function duplicate(template) {
     };
 }
 
+function updatePokemon(){
+    for (let i = 0; i < 4; i++) {
+        // ボタンのラベル
+        movebuttons[i].textContent = user_pokemon.moves[i].name;
+    }
+    document.getElementById("userpokemon").src = user_pokemon.img;
+}
+
 function battlestart() {
     var movebuttons = [
         document.getElementById("move1"),
@@ -298,11 +306,10 @@ function battlestart() {
 
 
     updateHP(user_pokemon, opp_pokemon);
+    updatePokemon();
 
 
     for (let i = 0; i < 4; i++) {
-        // ボタンのラベル
-        movebuttons[i].textContent = user_pokemon.moves[i].name;
         // 技の実行
         movebuttons[i].onclick = () => {
             disableButtons(movebuttons);
@@ -347,8 +354,7 @@ function battlestart() {
                             user_pokemon = user_party[currentuser_index];
                             updateHP(user_pokemon, opp_pokemon);
                             $(".explanation").text(user_pokemon.name + "をくりだした！");
-                            movebuttons[i].textContent = user_pokemon.moves[i].name;
-                            document.getElementById("userpokemon").src = user_pokemon.img;
+                            updatePokemon();
                         }, 1000);
                     }
                     enableButtons(movebuttons);
