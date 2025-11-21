@@ -242,6 +242,8 @@ $(".answer").on("compositionend", function () {
 });
 
 
+
+
 function disableButtons() {
     for (let i = 1; i <= 4; i++) {
         document.getElementById(`move${i}`).classList.add("hidden");
@@ -280,6 +282,10 @@ var movebuttons = [
     document.getElementById("move3"),
     document.getElementById("move4")
 ];
+var currentuser_index = Math.floor(Math.random() * user_party.length);
+var currentopp_index = Math.floor(Math.random() * opp_party.length);
+var user_pokemon = user_party[currentuser_index];
+var opp_pokemon = opp_party[currentopp_index];
 
 function duplicate(template) {
     return {
@@ -303,15 +309,6 @@ function updatePokemon(user, opp) {
 }
 
 function battlestart() {
-    var currentuser_index = Math.floor(Math.random() * user_party.length);
-    var currentopp_index = Math.floor(Math.random() * opp_party.length);
-    var user_pokemon = user_party[currentuser_index];
-    var opp_pokemon = opp_party[currentopp_index];
-    document.getElementById("opppokemon").src = opp_pokemon.img;
-    document.getElementById("userpokemon").src = user_pokemon.img;
-
-
-
     updateHP(user_pokemon, opp_pokemon);
     updatePokemon(user_pokemon, opp_pokemon);
 
