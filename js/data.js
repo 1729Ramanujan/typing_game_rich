@@ -28,26 +28,26 @@ var charmanderTemplate = {
 var squirtleTemplate = {
     name: "ゼニガメ",
     maxhp: 20,
-    a: 10,
-    d: 10,
+    a: 8,
+    d: 15,
     img: "./img/squirtle.png",
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
-        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
+        { name: "かたくなる", action: (user, opponent) => harden(user, opponent) },
         { name: "こうごうせい", action: (user, opponent) => synthesis(user, opponent) },
         { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
     ]
 };
 var venusaurTemplate = {
-    name: "フシギダネ",
+    name: "フシギバナ",
     maxhp: 30,
-    a: 10,
-    d: 10,
+    a: 20,
+    d: 15,
     img: "./img/venusaur.png",
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
         { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
-        { name: "こうごうせい", action: (user, opponent) => synthesis(user, opponent) },
+        { name: "リーフストーム", action: (user, opponent) => leafstorm(user, opponent) },
         { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
     ]
 };
@@ -75,4 +75,18 @@ function swoardsdance(user, opponent) {
 function synthesis(user, opponent) {
     user.hp = user.hp + 5;
     $(".explanation").text(user.name + "のこうごうせい！");
+}
+function harden(user, opponent) {
+    user.d = user.d * 2;
+    $(".explanation").text(user.name + "のかたくなる！");
+    setTimeout(() => {
+        $(".explanation").text(user.name + "のぼうぎょがあがった！");
+    }, 1000)
+}
+function leafstorm(user, opponent) {
+    opponent.hp -= user.a * 3 - opponent.d * 2;
+    if (opponent.hp <= 0) {
+        opponent.hp = 0;
+    }
+    $(".explanation").text(user.name + "のリーフストーム！");
 }
