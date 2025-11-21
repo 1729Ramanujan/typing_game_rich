@@ -361,7 +361,9 @@ function battlestart() {
                             updatePokemon(user_pokemon, opp_pokemon);
                         }, 1000);
                     }
-                    enableButtons();
+                    setTimeout(() => {
+                        enableButtons();
+                    }, 1000);
                 }, 2000);
             }
         };

@@ -314,6 +314,16 @@ body {
     opacity: 1;
 }
 
+.infoopp {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.infouser {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .image {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -358,7 +368,7 @@ body {
 }
 
 .hpopp {
-    width: 1000px;
+    width: 300px;
     height: 25px;
     /* 範囲を超える部分は隠すように規定 */
     overflow: hidden;
@@ -376,7 +386,7 @@ body {
 }
 
 .hpuser {
-    width: 1000px;
+    width: 300px;
     height: 25px;
     /* 範囲を超える部分は隠すように規定 */
     overflow: hidden;
@@ -392,6 +402,7 @@ body {
     background: linear-gradient(90deg, #ff4444, #ff8888);
     transition: width 0.5s;
 }
+
 .hidden {
     display: none;
     pointer-events: none;
