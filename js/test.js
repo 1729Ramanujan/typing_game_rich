@@ -268,6 +268,12 @@ function updateHP(user, opp) {
 
 var opp_party = [duplicate(bulbasaurTemplate), duplicate(charmanderTemplate)];
 var user_party = [duplicate(venusaurTemplate), duplicate(squirtleTemplate)];
+var movebuttons = [
+        document.getElementById("move1"),
+        document.getElementById("move2"),
+        document.getElementById("move3"),
+        document.getElementById("move4")
+    ];
 
 function duplicate(template) {
     return {
@@ -290,12 +296,6 @@ function updatePokemon(){
 }
 
 function battlestart() {
-    var movebuttons = [
-        document.getElementById("move1"),
-        document.getElementById("move2"),
-        document.getElementById("move3"),
-        document.getElementById("move4")
-    ];
     var currentuser_index = Math.floor(Math.random() * user_party.length);
     var currentopp_index = Math.floor(Math.random() * opp_party.length);
     var user_pokemon = user_party[currentuser_index];
