@@ -318,67 +318,29 @@ body {
 
 
 
+.hidden {
+    display: none;
+    pointer-events: none;
+}
 
-
-
+.enemy {
+    text-align: right;
+    margin-right: 275px;
+    align-items: flex-end;
+    margin-bottom: 0;
+}
 
 .infoopp {
     display: grid;
-    grid-template-columns: 1fr 300px 1fr;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 300px 100px;
+    align-items: flex-start;
+    justify-content: right;
     text-align: center;
+
 }
 
-.infouser {
-    display: grid;
-    grid-template-columns: 1fr 300px 1fr;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.image {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.userpokemon {
-    transform: scaleX(-1);
-    width: 320px;
-    height: 320px;
-}
-
-.opppokemon {
-    width: 320px;
-    height: 320px;
-}
-
-.movebox {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.move {
-    background: #000;
-    color: #fff;
-    padding: 10px 20px;
-    font-family: 'PixelMplus', sans-serif;
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 3px #000 inset;
-    cursor: pointer;
-    font-size: 12px;
-    width: 500px;
-    height: 100px;
-    font-size: 30px;
-}
-
-.move:hover {
-    background: #222;
-}
-
-.move:active {
-    background: #444;
+.hpnumberopp {
+    margin-top: 2px;
 }
 
 .hpopp {
@@ -389,6 +351,7 @@ body {
     border: 3px solid #000;
     box-shadow: 0 2px 0 #000;
     border-radius: 10px;
+    margin-top: 0px;
 }
 
 .hpcontentopp {
@@ -397,6 +360,22 @@ body {
     /* ゲージの中の色が赤色のグラデーションになるように規定 */
     background: linear-gradient(90deg, #ff4444, #ff8888);
     transition: width 0.5s;
+    margin-top: 0px;
+}
+
+.friend {
+    text-align: left;
+    margin-left: 10px;
+    align-items: flex-end;
+    margin-bottom: 0;
+}
+
+.infouser {
+    display: grid;
+    grid-template-columns: 300px 100px;
+    align-items: flex-start;
+    justify-content: left;
+    text-align: center;
 }
 
 .hpuser {
@@ -417,7 +396,80 @@ body {
     transition: width 0.5s;
 }
 
-.hidden {
-    display: none;
-    pointer-events: none;
+.hpnumberuser {
+    margin-top: 2px;
+}
+
+
+.image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+.userpokemon {
+    transform: scaleX(-1);
+    width: 320px;
+    height: 320px;
+}
+
+.opppokemon {
+    width: 320px;
+    height: 320px;
+}
+
+.buttons {
+    margin-left: 60px;
+}
+
+.movebox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.move {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 375px;
+    height: 100px;
+    font-size: 30px;
+}
+
+.control {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.move:hover {
+    background: #222;
+}
+
+.move:active {
+    background: #444;
+}
+
+.explanation {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    width: 520px;
+    margin: 0 auto;  
+    display: flex;
+    margin-right: 50px;
 }

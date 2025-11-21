@@ -21,11 +21,13 @@ function showscreen(screen) {
     document.getElementById("bgm_start").pause();
     document.getElementById("bgm_game").pause();
     document.getElementById("bgm_result").pause();
+    document.getElementById("bgm_pokemon_battle").pause();
 
     // もし音楽が流れているなら、音楽の最初に戻る様に設定
     document.getElementById("bgm_start").currentTime = 0;
     document.getElementById("bgm_game").currentTime = 0;
     document.getElementById("bgm_result").currentTime = 0;
+    document.getElementById("bgm_pokemon_battle").currentTime = 0;
 
     // 全ての画面からactiveを取り除いて非表示にしている
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
@@ -47,8 +49,8 @@ function showscreen(screen) {
         document.getElementById("bgm_result").play();
     }
     if (screen.id === "bonus") {
-        document.body.style.backgroundImage = "url('img/background4.png')";
-        document.getElementById("bgm_result").play();
+        document.body.style.backgroundImage = "url('img/background4.jpeg')";
+        document.getElementById("bgm_pokemon_battle").play();
     }
 }
 
@@ -263,8 +265,6 @@ bonusstage.addEventListener("click", () => {
     battlestart();
 });
 
-
-
 function updateHP(user, opp) {
     document.querySelector(".hpcontentuser").style.width = user.hp / user.maxhp * 100 + "%";
     document.querySelector(".hpcontentopp").style.width = opp.hp / opp.maxhp * 100 + "%";
@@ -274,8 +274,18 @@ function updateHP(user, opp) {
     $(".enemy").text(opp.name);
 }
 
-var opp_party = [duplicate(bulbasaurTemplate), duplicate(charmanderTemplate)];
-var user_party = [duplicate(venusaurTemplate), duplicate(squirtleTemplate)];
+var opp_party = [
+    duplicate(darkraiTemplate),
+    duplicate(dialgaTemplate),
+    duplicate(rayquazaTemplate),
+    duplicate(bulbasaurTemplate),
+    duplicate(charmanderTemplate)];
+var user_party = [
+    duplicate(venusaurTemplate),
+    duplicate(squirtleTemplate),
+    duplicate(serperiorTemplate),
+    duplicate(greninjaTemplate),
+    duplicate(sceptileTemplate)];
 var movebuttons = [
     document.getElementById("move1"),
     document.getElementById("move2"),

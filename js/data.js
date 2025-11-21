@@ -1,36 +1,62 @@
+// ポケモンの名前、画像、ステータスを保存する場所
 var bulbasaurTemplate = {
     name: "フシギダネ",
-    maxhp: 20,
-    a: 10,
-    d: 10,
-    img: "./img/bulbasaur.png",
+    maxhp: 100,
+    a: 40,
+    d: 40,
+    img: "./img/pokemon/bulbasaur.png",
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
-        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
-        { name: "こうごうせい", action: (user, opponent) => synthesis(user, opponent) },
+        { name: "かたくなる", action: (user, opponent) => harden(user, opponent) },
+        { name: "つるのむち", action: (user, opponent) => vinewhip(user, opponent) },
+        { name: ""}
+    ]
+};
+var serperiorTemplate = {
+    name: "ジャローダ",
+    maxhp: 160,
+    a: 70,
+    d: 70,
+    img: "./img/pokemon/serperior.png",
+    moves: [
+        { name: "つるのむち", action: (user, opponent) => vinewhip(user, opponent) },
+        { name: "リーフストーム", action: (user, opponent) => leafstorm(user, opponent) },
+        { name: "リーフブレード", action: (user, opponent) => leafblade(user, opponent) },
         { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
     ]
 };
-
+var greninjaTemplate = {
+    name: "ゲッコウガ",
+    maxhp: 150,
+    a: 120,
+    d: 50,
+    img: "./img/pokemon/reninja.png",
+    moves: [
+        { name: "みずしゅりけん", action: (user, opponent) => watershuriken(user, opponent) },
+        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
+        { name: "ハイドロポンプ", action: (user, opponent) => hydropump(user, opponent) },
+        { name: "みずでっぽう", action: (user, opponent) => watergun(user, opponent) }
+    ]
+};
 var charmanderTemplate = {
     name: "ヒトカゲ",
-    maxhp: 20,
-    a: 10,
-    d: 10,
-    img: "./img/charmander.png",
+    maxhp: 90,
+    a: 60,
+    d: 110,
+    img: "./img/pokemon/charmander.png",
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
-        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
-        { name: "こうごうせい", action: (user, opponent) => synthesis(user, opponent) },
-        { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
+        { name: "ひっかく", action: (user, opponent) => scratch(user, opponent) },
+        { name: "ひのこ", action: (user, opponent) => ember(user, opponent) },
+        { name: "",}
     ]
 };
 var squirtleTemplate = {
     name: "ゼニガメ",
-    maxhp: 20,
-    a: 8,
-    d: 15,
-    img: "./img/squirtle.png",
+    maxhp: 135,
+    a: 43,
+    d: 35,
+    img: "./img/pokemon/squirtle.png",
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
         { name: "かたくなる", action: (user, opponent) => harden(user, opponent) },
@@ -40,45 +66,179 @@ var squirtleTemplate = {
 };
 var venusaurTemplate = {
     name: "フシギバナ",
-    maxhp: 30,
-    a: 20,
-    d: 15,
-    img: "./img/venusaur.png",
+    maxhp: 170,
+    a: 80,
+    d: 70,
+    img: "./img/pokemon/venusaur.png",
     moves: [
-        { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
+        { name: "つるのむち", action: (user, opponent) => vinewhip(user, opponent) },
+        { name: "じしん", action: (user, opponent) => earthquake(user, opponent) },
+        { name: "リーフストーム", action: (user, opponent) => leafstorm(user, opponent) },
+        { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
+    ]
+};
+var darkraiTemplate = {
+    name: "ダークライ",
+    maxhp: 130,
+    a: 110,
+    d: 70,
+    img: "./img/pokemon/darkrai.png",
+    moves: [
+        { name: "あくのはどう", action: (user, opponent) => darkpulse(user, opponent) },
+        { name: "シャドークロー", action: (user, opponent) => shadowclaw(user, opponent) },
+        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
+        { name: "ゴーストダイブ", action: (user, opponent) => phantomforce(user, opponent) }
+    ]
+};
+var dialgaTemplate = {
+    name: "ディアルガ",
+    maxhp: 170,
+    a: 134,
+    d: 68,
+    img: "./img/pokemon/dialga.png",
+    moves: [
+        { name: "ときのほうこう", action: (user, opponent) => roaroftime(user, opponent) },
+        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
+        { name: "あくうせつだん", action: (user, opponent) => spacialrend(user, opponent) },
+        { name: "ドラゴンクロー", action: (user, opponent) => dragonclaw(user, opponent) }
+    ]
+};
+var rayquazaTemplate = {
+    name: "レックウザ",
+    maxhp: 200,
+    a: 132,
+    d: 56,
+    img: "./img/pokemon/rayquaza.png",
+    moves: [
+        { name: "ドラゴンクロー", action: (user, opponent) => dragonclaw(user, opponent) },
+        { name: "ガリョウテンセイ", action: (user, opponent) => dragonascent(user, opponent) },
+        { name: "りゅうのまい", action: (user, opponent) => dragondance(user, opponent) },
+        { name: "りゅうせいぐん", action: (user, opponent) => dracometeor(user, opponent) }
+    ]
+};
+var sceptileTemplate = {
+    name: "ジュカイン",
+    maxhp: 145,
+    a: 103,
+    d: 40,
+    img: "./img/pokemon/sceptile.png",
+    moves: [
+        { name: "リーフブレード", action: (user, opponent) => leafblade(user, opponent) },
         { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
         { name: "リーフストーム", action: (user, opponent) => leafstorm(user, opponent) },
         { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
     ]
 };
-function tackle(user, opponent) {
-    opponent.hp -= user.a * 2 - opponent.d;
-    if (opponent.hp <= 0) {
-        opponent.hp = 0;
+var hydreigonTemplate = {
+    name: "サザンドラ",
+    maxhp: 145,
+    a: 108,
+    d: 76,
+    img: "./img/pokemon/hydreigon.png",
+    moves: [
+        { name: "ドラゴンクロー", action: (user, opponent) => dragonclaw(user, opponent) },
+        { name: "りゅうのまい", action: (user, opponent) => dragondance(user, opponent) },
+        { name: "りゅうせいぐん", action: (user, opponent) => dracometeor(user, opponent) },
+        { name: "シャドークロー", action: (user, opponent) => shadowclaw(user, opponent) }
+    ]
+};
+var zacianTemplate = {
+    name: "ザシアン",
+    maxhp: 90,
+    a: 140,
+    d: 40,
+    img: "./img/pokemon/zacian.png",
+    moves: [
+        { name: "きょじゅうざん", action: (user, opponent) => behemothblade(user, opponent) },
+        { name: "つるぎのまい", action: (user, opponent) => swoardsdance(user, opponent) },
+        { name: "かみつく", action: (user, opponent) => bite(user, opponent) },
+        { name: "きりさく", action: (user, opponent) => slash(user, opponent) }
+    ]
+};
+
+
+// ここからは技のデータを保存する場所
+function damagecalculation(user, opp, damage) {
+    opp.hp -= Math.floor((22 * damage * user.a / opp.d / 50) + 2);
+    if (opp.hp <= 0) {
+        opp.hp = 0;
     }
-    $(".explanation").text(user.name + "のたいあたり！");
 }
-function solarbeam(user, opponent) {
-    opponent.hp -= user.a * 2 - opponent.d;
-    if (opponent.hp <= 0) {
-        opponent.hp = 0;
-    }
+// アクアリング
+function aquaring(user, opponent) {
+    user.hp = user.hp + 10;
+    $(".explanation").text(user.name + "のアクアリング！");
+}
+// あくうせつだん
+function spacialrend(user, opp) {
+    damagecalculation(user, opp, 100);
+    $(".explanation").text(user.name + "のあくうせつだん！");
+}
+// あくのはどう
+function darkpulse(user, opp) {
+    damagecalculation(user, opp, 80);
+    $(".explanation").text(user.name + "のあくのはどう！");
+}
+// かみつく
+function bite(user, opp) {
+    damagecalculation(user, opp, 60);
+    $(".explanation").text(user.name + "のかみつく！");
+}
+// ガリョウテンセイ
+function dragonascent(user, opp) {
+    damagecalculation(user, opp, 120);
+    $(".explanation").text(user.name + "のガリョウテンセイ！！！");
+}
+// きりさく
+function slash(user, opp) {
+    damagecalculation(user, opp, 70);
+    $(".explanation").text(user.name + "のきりさく！");
+}
+// きょじゅうざん
+function behemothblade(user, opp) {
+    damagecalculation(user, opp, 100);
+    $(".explanation").text(user.name + "のきょじゅうざん！！！");
+}
+
+// ゴーストダイブ
+function phantomforce(user, opp) {
+    damagecalculation(user, opp, 90);
+    $(".explanation").text(user.name + "のゴーストダイブ！");
+}
+// シャドークロー
+function shadowclaw(user, opp) {
+    damagecalculation(user, opp, 70);
+    $(".explanation").text(user.name + "のシャドークロー！");
+}
+// ソーラービーム
+function solarbeam(user, opp) {
+    damagecalculation(user, opp, 50);
     $(".explanation").text(user.name + "のソーラービーム！");
 }
-function watergun(user, opponent) {
-    opponent.hp -= user.a * 1.5 - opponent.d;
-    if (opponent.hp <= 0) {
-        opponent.hp = 0;
-    }
+// たいあたり
+function tackle(user, opp) {
+    damagecalculation(user, opp, 30);
+    $(".explanation").text(user.name + "のたいあたり！");
+}
+// ドラゴンクロー
+function dragonclaw(user, opp) {
+    damagecalculation(user, opp, 80);
+    $(".explanation").text(user.name + "のドラゴンクロー！");
+}
+// みずでっぽう
+function watergun(user, opp) {
+    damagecalculation(user, opp, 40);
     $(".explanation").text(user.name + "のみずでっぽう！");
 }
-function swoardsdance(user, opponent) {
-    user.a = user.a * 2;
+// つるぎのまい
+function swoardsdance(user, opp) {
+    user.a = user.a * 1.5;
     $(".explanation").text(user.name + "のつるぎのまい！");
     setTimeout(() => {
         $(".explanation").text(user.name + "のこうげきがあがった！");
     }, 1000)
 }
+// こうごうせい
 function synthesis(user, opponent) {
     user.hp = user.hp + 5;
     $(".explanation").text(user.name + "のこうごうせい！");
@@ -86,21 +246,74 @@ function synthesis(user, opponent) {
         user.hp = user.maxhp;
     }
 }
-function aquaring(user, opponent) {
-    user.hp = user.hp + 10;
-    $(".explanation").text(user.name + "のアクアリング！");
-}
-function harden(user, opponent) {
-    user.d = user.d * 2;
+// かたくなる
+function harden(user, opp) {
+    user.d = user.d * 1.5;
     $(".explanation").text(user.name + "のかたくなる！");
     setTimeout(() => {
         $(".explanation").text(user.name + "のぼうぎょがあがった！");
     }, 1000)
 }
-function leafstorm(user, opponent) {
-    opponent.hp -= user.a * 3 - opponent.d * 2;
-    if (opponent.hp <= 0) {
-        opponent.hp = 0;
-    }
+// リーフストーム
+function leafstorm(user, opp) {
+    damagecalculation(user, opp, 60);
     $(".explanation").text(user.name + "のリーフストーム！");
+}
+// ときのほうこう
+function roaroftime(user, opp) {
+    damagecalculation(user, opp, 130);
+    $(".explanation").text(user.name + "のときのほうこう！");
+    flashImage();
+}
+// リーフブレード
+function leafblade(user, opp) {
+    damagecalculation(user, opp, 90);
+    $(".explanation").text(user.name + "のリーフブレード！");
+}
+// みずしゅりけん
+function watershuriken(user, opp) {
+    damagecalculation(user, opp, 75);
+    $(".explanation").text(user.name + "のみずしゅりけん！");
+}
+// ハイドロポンプ
+function hydropump(user, opp) {
+    damagecalculation(user, opp, 100);
+    $(".explanation").text(user.name + "のハイドロポンプ！");
+}
+// つるのむち
+function vinewhip(user, opp) {
+    damagecalculation(user, opp, 45);
+    $(".explanation").text(user.name + "のつるのむち！");
+}
+// ひっかく
+function scratch(user, opp) {
+    damagecalculation(user, opp, 35);
+    $(".explanation").text(user.name + "のひっかく！");
+}
+// ひのこ
+function ember(user, opp) {
+    damagecalculation(user, opp, 40);
+    $(".explanation").text(user.name + "のひのこ！");
+}
+// じしん
+function earthquake(user, opp) {
+    damagecalculation(user, opp, 100);
+    $(".explanation").text(user.name + "のじしん！");
+}
+// りゅうせいぐん
+function dracometeor(user, opp) {
+    damagecalculation(user, opp, 130);
+    $(".explanation").text(user.name + "のりゅうせいぐん！");
+}
+// りゅうのまい
+function dragondance(user, opp) {
+    user.a = user.a * 1.33;
+    user.d = user.d * 1.33;
+    $(".explanation").text(user.name + "のりゅうのまい！");
+    setTimeout(() => {
+        $(".explanation").text(user.name + "のこうげきがすこしあがった！");
+    }, 1000)
+    setTimeout(() => {
+        $(".explanation").text(user.name + "のぼうぎょがすこしあがった！");
+    }, 2000)
 }
