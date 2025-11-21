@@ -392,3 +392,6 @@ body {
     background: linear-gradient(90deg, #ff4444, #ff8888);
     transition: width 0.5s;
 }
+.hidden {
+    display: none;
+}

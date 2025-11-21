@@ -314,6 +314,7 @@ function battlestart() {
         // 技の実行
         movebuttons[i].onclick = () => {
             disableButtons(movebuttons);
+            document.querySelector(".move").classList.add("hidden");
             user_pokemon.moves[i].action(user_pokemon, opp_pokemon);
             updateHP(user_pokemon, opp_pokemon);
             if (opp_pokemon.hp <= 0) {
@@ -359,6 +360,7 @@ function battlestart() {
                         }, 1000);
                     }
                     enableButtons(movebuttons);
+                    document.querySelector(".move").classList.remove("hidden");
                 }, 2000);
             }
         };
