@@ -243,15 +243,15 @@ $(".answer").on("compositionend", function () {
 
 
 function disableButtons() {
-    for (let i = 0; i < 4; i++) {
-        document.getElementById("move[i]").classList.add("hidden");
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`move${i}`).classList.add("hidden");
     }
 
 }
 
 function enableButtons() {
-    for (let i = 0; i < 4; i++) {
-        document.getElementById("move[i]").classList.remove("hidden");
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`move${i}`).classList.remove("hidden");
     }
 
 }
@@ -275,11 +275,11 @@ function updateHP(user, opp) {
 var opp_party = [duplicate(bulbasaurTemplate), duplicate(charmanderTemplate)];
 var user_party = [duplicate(venusaurTemplate), duplicate(squirtleTemplate)];
 var movebuttons = [
-        document.getElementById("move1"),
-        document.getElementById("move2"),
-        document.getElementById("move3"),
-        document.getElementById("move4")
-    ];
+    document.getElementById("move1"),
+    document.getElementById("move2"),
+    document.getElementById("move3"),
+    document.getElementById("move4")
+];
 
 function duplicate(template) {
     return {
@@ -293,7 +293,7 @@ function duplicate(template) {
     };
 }
 
-function updatePokemon(user,opp){
+function updatePokemon(user, opp) {
     for (let i = 0; i < 4; i++) {
         // ボタンのラベル
         movebuttons[i].textContent = user.moves[i].name;
@@ -313,7 +313,7 @@ function battlestart() {
 
 
     updateHP(user_pokemon, opp_pokemon);
-    updatePokemon(user_pokemon,opp_pokemon);
+    updatePokemon(user_pokemon, opp_pokemon);
 
 
     for (let i = 0; i < 4; i++) {
@@ -361,7 +361,7 @@ function battlestart() {
                             user_pokemon = user_party[currentuser_index];
                             updateHP(user_pokemon, opp_pokemon);
                             $(".explanation").text(user_pokemon.name + "をくりだした！");
-                            updatePokemon(user_pokemon,opp_pokemon);
+                            updatePokemon(user_pokemon, opp_pokemon);
                         }, 1000);
                     }
                     enableButtons();
