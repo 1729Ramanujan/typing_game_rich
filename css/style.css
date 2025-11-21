@@ -1,0 +1,387 @@
+/* ビット文字のダウンロード部分 */
+@font-face {
+    font-family: 'PixelMplus';
+    src: url(../fonts/PixelMplus10-Bold.ttf) format('truetype');
+}
+
+/* スタート画面、ゲーム画面、リザルト画面を最初は透明にして、移り変わりの速度を設定している */
+.screen {
+    /* display: none; */
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    /* image-rendering: pixelated; */
+    /* これはクリックしても何も反応しない様にしてる。透明な状態のままだと、
+    何もないところをクリックしたら反応する可能性があるから */
+    pointer-events: none;
+    transition: opacity 0.2s steps(10);
+    z-index: 10px;
+}
+
+/* js上で.activeをスクリーンにつけたら透明度が１になって表示される様に操作している */
+.screen.active {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.starttitle {
+    width: 1000px;
+    height: auto;
+    margin-bottom: 300px;
+}
+
+body {
+    background-image: url('../img/background1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'PixelMplus';
+    background-position: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.title1 {
+    font-size: 100px;
+}
+
+.startbutton1 {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 300px;
+}
+
+.startbutton1:hover {
+    background: #222;
+}
+
+.startbutton1:active {
+    background: #444;
+}
+
+.startbutton2 {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 300px;
+}
+
+.startbutton2:hover {
+    background: #222;
+}
+
+.startbutton2:active {
+    background: #444;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.title {
+    width: 300px;
+    height: auto;
+}
+
+.title2 {
+    font-family: 'PixelMplus', sans-serif;
+    font-size: 30px;
+}
+
+.timer {
+    background-image: url("../img/");
+    background-size: cover;
+    font-size: 30px;
+    font-family: 'Press Start 2P', sans-serif;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.score {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 30px;
+}
+
+.gauge2 {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gauge {
+    width: 1000px;
+    height: 25px;
+    /* 範囲を超える部分は隠すように規定 */
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: 0 2px 0 #000;
+    border-radius: 10px;
+}
+
+.gaugecontent {
+    height: 100%;
+    width: 0%;
+    /* ゲージの中の色が赤色のグラデーションになるように規定 */
+    background: linear-gradient(90deg, #ff4444, #ff8888);
+    transition: width 0.2s;
+}
+
+.gauge1 {
+    width: 1000px;
+    height: 25px;
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: 0 2px 0 #000;
+    border-radius: 10px;
+}
+
+.gaugecontent1 {
+    height: 100%;
+    width: 0%;
+    /* ゲージの中の色が虹色のグラデーションになる様に規定 */
+    background: linear-gradient(90deg, #ff0000, #ffa500, #ffff00, #02ff5b, #02c0ff);
+    transition: width 0.2s;
+}
+
+/* フィーバー時の文字の表示の仕方*/
+.fever {
+    font-size: 60px;
+    height: 60px;
+    /* 背景が虹色になる様に設定 */
+    background: linear-gradient(90deg,
+            red,
+            orange,
+            yellow,
+            green,
+            cyan,
+            blue,
+            violet);
+    background-size: 400%;
+    /* 背景を文字の形に切り抜く様に規定 */
+    -webkit-background-clip: text;
+    /* 文字の色を透明にすることで背景の虹色の変化がわかる様にする */
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-move 1s linear infinite;
+}
+
+/* 背景が左からミンギに移動していくように設定している */
+@keyframes rainbow-move {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.question {
+    font-family: 'PixelMplus', sans-serif;
+    font-size: 60px;
+    margin-top: 70px;
+}
+
+/* 回答欄を綺麗に装飾している */
+.answer {
+    width: 1050px;
+    height: 200px;
+    border: 2px solid #fbc02d;
+    border-radius: 10px;
+    font-size: 60px;
+    text-align: center;
+    background-color: rgba(0, 114, 8, 0.85);
+    color: #333;
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'PixelMplus';
+    margin-top: 15px;
+}
+
+/* ユーザーが入力しているときに黄色く光って拡大するように規定 */
+.answer:focus {
+    border-color: #ffeb3b;
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.7);
+    transform: scale(1.03);
+}
+
+.result {
+    align-items: center;
+    margin-top: 230px;
+}
+
+.resultscore {
+    font-size: 90px;
+
+}
+
+.challenge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.retrybutton {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 125px;
+}
+
+.bonusstage {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 125px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bonusstage.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.retrybutton:hover {
+    background: #222;
+}
+
+.retrybutton:active {
+    background: #444;
+}
+
+.flashImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* opacityはどれくらい透けて見えるかが指定される */
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.flashImage.show {
+    opacity: 1;
+}
+
+.image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.userpokemon {
+    transform: scaleX(-1);
+}
+
+.movebox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.move {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'PixelMplus', sans-serif;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #000 inset;
+    cursor: pointer;
+    font-size: 12px;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+}
+
+.move:hover {
+    background: #222;
+}
+
+.move:active {
+    background: #444;
+}
+
+.hpopp {
+    width: 1000px;
+    height: 25px;
+    /* 範囲を超える部分は隠すように規定 */
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: 0 2px 0 #000;
+    border-radius: 10px;
+}
+
+.hpcontentopp {
+    height: 100%;
+    width: 100%;
+    /* ゲージの中の色が赤色のグラデーションになるように規定 */
+    background: linear-gradient(90deg, #ff4444, #ff8888);
+    transition: width 0.5s;
+}
+
+.hpuser {
+    width: 1000px;
+    height: 25px;
+    /* 範囲を超える部分は隠すように規定 */
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: 0 2px 0 #000;
+    border-radius: 10px;
+}
+
+.hpcontentuser {
+    height: 100%;
+    width: 100%;
+    /* ゲージの中の色が赤色のグラデーションになるように規定 */
+    background: linear-gradient(90deg, #ff4444, #ff8888);
+    transition: width 0.5s;
+}

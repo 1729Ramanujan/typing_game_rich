@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <img id="flashImage1" src="img/mega1.png" class="flashImage">
+    <img id="flashImage2" src="img/mega2.png" class="flashImage">
+    <img id="flashImage3" src="img/mega3.png" class="flashImage">
+    <audio id="bgm_start" src="music/start.mp3" loop></audio>
+    <audio id="bgm_game" src="music/game.mp3" loop></audio>
+    <audio id="bgm_result" src="music/result.mp3" loop></audio>
+    <audio id="button_push" src="music/push.mp3" loop></audio>
+    <audio id="bgm_right" src="music/right.mp3"></audio>
+    <div id="start" class="screen">
+        <p class="title1">ボケモンタイピング</p>
+        <button class="startbutton1">かんたん</button>
+        <button class="startbutton2">むずかしい</button>
+    </div>
+
+    <div id="game" class="screen">
+        <div class="body">
+            <div class="header">
+                <!-- <p><img src="img/title.png" alt="タイトル" class="title"></p> -->
+                <p class="title2">ボケモンタイピング</p>
+                <p style="font-family: 'Press Start 2P', sans-serif; font-size: 30px;">timer:</p>
+                <p class="timer">0</p>
+                <p style="font-family: 'Press Start 2P', sans-serif; font-size: 30px;">score:</p>
+                <p class="score">0</p>
+            </div>
+            <p style="font-family: 'Press Start 2P', sans-serif; font-size: 30px;">time bonus</p>
+            <div class="gauge2">
+                <div class="gauge">
+                    <div class="gaugecontent"></div>
+                </div>
+                <p style="font-size: 30px;">メガシンカ</p>
+                <div class="gauge1">
+                    <div class="gaugecontent1"></div>
+                </div>
+            </div>
+            <p class="fever"></p>
+            <p class="question"></p>
+            <input class="answer" type="text">
+        </div>
+    </div>
+
+    <div id="result" class="screen">
+        <div class="challenge">
+            <button class="bonusstage">ボーナスステージ！</button>
+            <button class="retrybutton">リトライ</button>
+        </div>
+        <div class="result">
+            <p class="resultscore"></p>
+        </div>
+    </div>
+
+    <div id="bonus" class="screen">
+        <p class="enemy"></p>
+        <div class="hpopp">
+            <div class="hpcontentopp"></div>
+        </div>
+        <p class="hpnumberopp"></p>
+        <div class="image">
+            <img id="userpokemon" class="userpokemon">
+            <img id="opppokemon" class="opppokemon">
+        </div>
+        <p class="friend"></p>
+        <div class="hpuser">
+            <div class="hpcontentuser"></div>
+        </div>
+        <p class="hpnumberuser"></p>
+        <div class="movebox">
+            <button id="move1" class="move"></button>
+            <button id="move2" class="move"></button>
+        </div>
+        <div class="movebox">
+            <button id="move3" class="move"></button>
+            <button id="move4" class="move"></button>
+        </div>
+        <p class="explanation"></p>
+    </div>
+
+    <!-- jQueryが先 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- test.jsが後 -->
+    <script src="js/test.js"></script>
+</body>
+
+</html>
