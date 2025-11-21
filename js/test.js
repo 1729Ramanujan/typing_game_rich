@@ -287,12 +287,13 @@ function duplicate(template) {
     };
 }
 
-function updatePokemon(){
+function updatePokemon(user,opp){
     for (let i = 0; i < 4; i++) {
         // ボタンのラベル
-        movebuttons[i].textContent = user_pokemon.moves[i].name;
+        movebuttons[i].textContent = user.moves[i].name;
     }
-    document.getElementById("userpokemon").src = user_pokemon.img;
+    document.getElementById("userpokemon").src = user.img;
+    document.getElementById("opppokemon").src = opp.img;
 }
 
 function battlestart() {
@@ -306,7 +307,7 @@ function battlestart() {
 
 
     updateHP(user_pokemon, opp_pokemon);
-    updatePokemon();
+    updatePokemon(user_pokemon,opp_pokemon);
 
 
     for (let i = 0; i < 4; i++) {
@@ -354,7 +355,7 @@ function battlestart() {
                             user_pokemon = user_party[currentuser_index];
                             updateHP(user_pokemon, opp_pokemon);
                             $(".explanation").text(user_pokemon.name + "をくりだした！");
-                            updatePokemon();
+                            updatePokemon(user_pokemon,opp_pokemon);
                         }, 1000);
                     }
                     enableButtons(movebuttons);
