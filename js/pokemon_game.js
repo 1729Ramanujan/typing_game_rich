@@ -226,19 +226,19 @@ startbutton3.addEventListener("click", () => {
 });
 
 function rayquaza() {
-    // ３枚の画像をhtmlからインポート
+    
     const rayquaza1 = document.getElementById("rayquaza1");
     const rayquaza2 = document.getElementById("rayquaza2");
     const rayquaza3 = document.getElementById("rayquaza3");
     const rayquaza4 = document.getElementById("rayquaza4");
-    // まず一枚目を表示させる
+    
     rayquaza1.classList.add("show");
-    // ０.5秒後に消す
+    
     setTimeout(() => rayquaza1.classList.remove("show"), 800);
-    // ２枚目の表示、削除
+    
     setTimeout(() => rayquaza2.classList.add("show"), 800);
     setTimeout(() => rayquaza2.classList.remove("show"), 1600);
-    // ３枚目の表示、削除
+    
     setTimeout(() => rayquaza3.classList.add("show"), 1600);
     setTimeout(() => rayquaza3.classList.remove("show"), 2400);
 
@@ -252,14 +252,14 @@ function dialga() {
     const dialga3 = document.getElementById("dialga3");
     const dialga4 = document.getElementById("dialga4");
     const dialga5 = document.getElementById("dialga5");
-    // まず一枚目を表示させる
+    
     dialga1.classList.add("show");
-    // ０.5秒後に消す
+    
     setTimeout(() => dialga1.classList.remove("show"), 800);
-    // ２枚目の表示、削除
+    
     setTimeout(() => dialga2.classList.add("show"), 800);
     setTimeout(() => dialga2.classList.remove("show"), 1600);
-    // ３枚目の表示、削除
+
     setTimeout(() => dialga3.classList.add("show"), 1600);
     setTimeout(() => dialga3.classList.remove("show"), 2400);
 
