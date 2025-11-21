@@ -227,6 +227,7 @@ function dragonascent(user, opp) {
     damagecalculation(user, opp, 120);
     $(".explanation").text(user.name + "のガリョウテンセイ！！！");
     document.getElementById("bgm_attack").play();
+    rayquaza();
 }
 
 // きりさく
@@ -307,7 +308,7 @@ function roaroftime(user, opp) {
     damagecalculation(user, opp, 130);
     $(".explanation").text(user.name + "のときのほうこう！");
     document.getElementById("bgm_attack").play();
-    flashImage();
+    dialga();
 }
 
 // ドラゴンクロー
