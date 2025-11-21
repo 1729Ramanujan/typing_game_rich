@@ -267,7 +267,7 @@ function updateHP(user, opp) {
 }
 
 var opp_party = [duplicate(bulbasaurTemplate), duplicate(charmanderTemplate)];
-var user_party = [duplicate(bulbasaurTemplate), duplicate(charmanderTemplate)];
+var user_party = [duplicate(venusaurTemplate), duplicate(squirtleTemplate)];
 
 function duplicate(template) {
     return {
