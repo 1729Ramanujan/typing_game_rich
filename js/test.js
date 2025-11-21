@@ -412,3 +412,8 @@ function battlestart() {
 }
 
 
+startbutton3.addEventListener("click", () => {
+    showscreen(bonus);
+    battlestart();
+});
+var startbutton3 = document.querySelector(".startbutton3");
