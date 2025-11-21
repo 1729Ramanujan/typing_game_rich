@@ -95,9 +95,9 @@ function checkanswer() {
         document.getElementById("bgm_right").play();
         var score = Number($(".score").text());
         // タイムボーナスのゲージを貯める
-        setgauge(currentquestion.length * 0)
+        setgauge(currentquestion.length * 5)
         // メガシンカゲージを貯める
-        setgauge1(currentquestion.length * 10)
+        setgauge1(currentquestion.length * 3)
         // メガシンカしているかどうかでどのくらいスコアがカントされるかを判定
         if (boostmode === true) {
             score += currentquestion.length * 5;
@@ -148,7 +148,7 @@ function gamestart() {
     currentquestion = randomword(questions);
     $(".question").text(currentquestion);
     // タイマーの機能をつける部分
-    timer = 0;
+    timer = 60;
     var countdown = setInterval(() => {
         timer--;
         $(".timer").text(timer);
@@ -164,7 +164,7 @@ function gamestart() {
             gaging1 = 0;
             document.querySelector(".gaugecontent1").style.width = 0 + "%";
             var bonus = document.querySelector(".bonusstage");
-            if (finalscore >= 0) {
+            if (finalscore >= 100) {
                 bonus.classList.add("show");
             }
             $(".fever").html("");
