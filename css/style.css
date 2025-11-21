@@ -321,6 +321,13 @@ body {
 
 .userpokemon {
     transform: scaleX(-1);
+    width: 320px;
+    height: 320px;
+}
+
+.opppokemon {
+    width: 320px;
+    height: 320px;
 }
 
 .movebox {
