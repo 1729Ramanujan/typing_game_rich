@@ -347,6 +347,7 @@ function battlestart() {
                             user_pokemon = user_party[currentuser_index];
                             updateHP(user_pokemon, opp_pokemon);
                             $(".explanation").text(user_pokemon.name + "をくりだした！");
+                            movebuttons[i].textContent = user_pokemon.moves[i].name;
                             document.getElementById("userpokemon").src = user_pokemon.img;
                         }, 1000);
                     }
