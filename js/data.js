@@ -34,8 +34,8 @@ var squirtleTemplate = {
     moves: [
         { name: "たいあたり", action: (user, opponent) => tackle(user, opponent) },
         { name: "かたくなる", action: (user, opponent) => harden(user, opponent) },
-        { name: "こうごうせい", action: (user, opponent) => synthesis(user, opponent) },
-        { name: "ソーラービーム", action: (user, opponent) => solarbeam(user, opponent) }
+        { name: "アクアリング", action: (user, opponent) => aquaring(user, opponent) },
+        { name: "みずでっぽう", action: (user, opponent) => watergun(user, opponent) }
     ]
 };
 var venusaurTemplate = {
@@ -65,6 +65,13 @@ function solarbeam(user, opponent) {
     }
     $(".explanation").text(user.name + "のソーラービーム！");
 }
+function watergun(user, opponent) {
+    opponent.hp -= user.a * 1.5 - opponent.d;
+    if (opponent.hp <= 0) {
+        opponent.hp = 0;
+    }
+    $(".explanation").text(user.name + "のみずでっぽう！");
+}
 function swoardsdance(user, opponent) {
     user.a = user.a * 2;
     $(".explanation").text(user.name + "のつるぎのまい！");
@@ -75,6 +82,10 @@ function swoardsdance(user, opponent) {
 function synthesis(user, opponent) {
     user.hp = user.hp + 5;
     $(".explanation").text(user.name + "のこうごうせい！");
+}
+function aquaring(user, opponent) {
+    user.hp = user.hp + 10;
+    $(".explanation").text(user.name + "のアクアリング！");
 }
 function harden(user, opponent) {
     user.d = user.d * 2;
