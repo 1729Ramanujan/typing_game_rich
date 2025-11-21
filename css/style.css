@@ -314,14 +314,28 @@ body {
     opacity: 1;
 }
 
+
+
+
+
+
+
+
+
 .infoopp {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .infouser {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .image {
