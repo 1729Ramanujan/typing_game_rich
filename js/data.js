@@ -82,6 +82,9 @@ function swoardsdance(user, opponent) {
 function synthesis(user, opponent) {
     user.hp = user.hp + 5;
     $(".explanation").text(user.name + "のこうごうせい！");
+    if (user.hp >= user.maxhp) {
+        user.hp = user.maxhp;
+    }
 }
 function aquaring(user, opponent) {
     user.hp = user.hp + 10;
