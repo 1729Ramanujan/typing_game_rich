@@ -167,7 +167,7 @@ function gamestart() {
             gaging1 = 0;
             document.querySelector(".gaugecontent1").style.width = 0 + "%";
             var bonus = document.querySelector(".bonusstage");
-            if (finalscore >= 100) {
+            if (finalscore >= 50) {
                 bonus.classList.add("show");
             }
             $(".fever").html("");

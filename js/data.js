@@ -155,9 +155,9 @@ var hydreigonTemplate = {
 };
 var zacianTemplate = {
     name: "ザシアン",
-    maxhp: 90,
+    maxhp: 110,
     a: 140,
-    d: 40,
+    d: 60,
     s: 148,
     img: "./img/pokemon/zacian.png",
     moves: [
@@ -170,12 +170,14 @@ var zacianTemplate = {
 
 
 // ここからは技のデータを保存する場所
+// ダメージが発生する技の時に、具体的にどれくらいのダメージが生じるのかを計算する関数
 function damagecalculation(user, opp, damage) {
     opp.hp -= Math.floor((22 * damage * user.a / opp.d / 50) + 2);
     if (opp.hp <= 0) {
         opp.hp = 0;
     }
 }
+// かいふく技の使用時の時に、どれくらいのHPが回復するのかを計算する関数
 function healcalculation(user, opp, ratio) {
     user.hp += Math.floor(user.maxhp * ratio);
     if (user.hp >= user.maxhp) {
@@ -307,6 +309,7 @@ function vinewhip(user, opp) {
 function roaroftime(user, opp) {
     damagecalculation(user, opp, 130);
     $(".explanation").text(user.name + "のときのほうこう！");
+    document.getElementById("bgm_rayquaza").play();
     setTimeout(() => {document.getElementById("bgm_dialga").play();}, 3200);
     dialga();
 }

@@ -75,7 +75,7 @@ function updatePokemon(user, opp) {
     document.getElementById("userpokemon").src = user.img;
     document.getElementById("opppokemon").src = opp.img;
 }
-
+// モンスターボールで手持ちのポケモンの個数を表す部分
 function updatestatus(user, opp) {
     for (let i = 0; i <= 5; i++) {
         const ball = document.getElementById(`pokeball${i + 1}`);
@@ -102,7 +102,7 @@ function takeTurn(attacker, defender, moveIndex) {
     attacker.moves[moveIndex].action(attacker, defender);
     updateHP(user_pokemon, opp_pokemon);
 }
-
+// ポケモンが倒れたかどうかを判定する関数
 function fainted(pokemon) {
     if (pokemon.hp <= 0) {
         return true;
@@ -110,17 +110,19 @@ function fainted(pokemon) {
         return false;
     }
 }
-
+// 新しいポケモンが出る時に、手持ちのポケモンを更新して新しいポケモンをランダムに決める関数
 function switchPokemon(party) {
     party = party.filter(p => p.hp > 0);
     return party[Math.floor(Math.random() * party.length)];
 }
 
 function processFaint(isUser) {
+    // もし倒されたポケモンがユーザーのものなら
     if (isUser === true) {
         setTimeout(() => {
             disableButtons();
             $(".explanation").text(user_pokemon.name + "はたおれた！");
+            // 手持ちのポケモンを更新
             user_party = user_party.filter(p => p.hp > 0);
 
             if (user_party.length === 0) {
@@ -238,6 +240,7 @@ startbutton3.addEventListener("click", () => {
     battlestart();
 });
 
+// レックウザのアニメーション関数
 function rayquaza() {
 
     const rayquaza1 = document.getElementById("rayquaza1");
@@ -258,7 +261,7 @@ function rayquaza() {
     setTimeout(() => rayquaza4.classList.add("show"), 2400);
     setTimeout(() => rayquaza4.classList.remove("show"), 3200);
 }
-
+// ディアルガのアニメーション関数
 function dialga() {
     const dialga1 = document.getElementById("dialga1");
     const dialga2 = document.getElementById("dialga2");
