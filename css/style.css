@@ -321,7 +321,7 @@ body {
 
 
 .hidden {
-    display: none;
+    opacity: 0;
     pointer-events: none;
 }
 
@@ -331,15 +331,19 @@ body {
     align-items: flex-end;
     margin-bottom: 0;
 }
-.statusopp{
+
+.statusopp {
     padding-bottom: 0;
     height: 30px;
 }
-.nameopp{
+
+.nameopp {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    height: 52.5px;
 }
+
 .infoopp {
     display: grid;
     grid-template-columns: 300px 100px;
@@ -372,15 +376,18 @@ body {
     transition: width 0.5s;
     margin-top: 0px;
 }
-.nameuser{
+
+.nameuser {
     display: flex;
     align-items: flex-end;
 }
-.statusuer{
+
+.statusuer {
     padding-bottom: 0;
     height: 30px;
     margin-left: 30px;
 }
+
 .friend {
     text-align: left;
     margin-left: 10px;
@@ -388,7 +395,8 @@ body {
     margin-bottom: 0;
     padding-right: 60px;
 }
-.pokeball{
+
+.pokeball {
     width: 30px;
     height: 30px;
     margin-bottom: 0;
@@ -494,7 +502,7 @@ body {
     justify-content: center;
     height: 240px;
     width: 520px;
-    margin: 0 auto;  
+    margin: 0 auto;
     display: flex;
     margin-right: 50px;
 }

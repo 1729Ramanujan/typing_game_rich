@@ -226,7 +226,7 @@ function bite(user, opp) {
 function dragonascent(user, opp) {
     damagecalculation(user, opp, 120);
     $(".explanation").text(user.name + "のガリョウテンセイ！！！");
-    document.getElementById("bgm_attack").play();
+    document.getElementById("bgm_rayquaza").play();
     rayquaza();
 }
 
@@ -307,7 +307,7 @@ function vinewhip(user, opp) {
 function roaroftime(user, opp) {
     damagecalculation(user, opp, 130);
     $(".explanation").text(user.name + "のときのほうこう！");
-    document.getElementById("bgm_attack").play();
+    setTimeout(() => {document.getElementById("bgm_dialga").play();}, 3200);
     dialga();
 }
 

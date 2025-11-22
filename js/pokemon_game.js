@@ -31,15 +31,17 @@ var opp_party = [
     duplicate(venusaurTemplate),
     duplicate(sceptileTemplate),
     duplicate(bulbasaurTemplate),
-    duplicate(charmanderTemplate),
-    duplicate(hydreigonTemplate)];
+    duplicate(rayquazaTemplate),
+    duplicate(hydreigonTemplate)
+];
 var user_party = [
-    duplicate(dialgaTemplate),
+    duplicate(rayquazaTemplate),
     duplicate(squirtleTemplate),
     duplicate(serperiorTemplate),
     duplicate(greninjaTemplate),
-    duplicate(rayquazaTemplate),
-    duplicate(zacianTemplate)];
+    duplicate(dialgaTemplate),
+    duplicate(zacianTemplate)
+];
 var movebuttons = [
     document.getElementById("move1"),
     document.getElementById("move2"),
@@ -66,14 +68,15 @@ function duplicate(template) {
 
 function updatePokemon(user, opp) {
     for (let i = 0; i < 4; i++) {
-        // ボタンのラベル
+        // ボタンに技名を代入してポケモンに応じて技名が変わるように
         movebuttons[i].textContent = user.moves[i].name;
     }
+    // ポケモンの画像の更新
     document.getElementById("userpokemon").src = user.img;
     document.getElementById("opppokemon").src = opp.img;
 }
 
-function updatestatus(user,opp) {
+function updatestatus(user, opp) {
     for (let i = 0; i <= 5; i++) {
         const ball = document.getElementById(`pokeball${i + 1}`);
 
@@ -122,7 +125,12 @@ function processFaint(isUser) {
 
             if (user_party.length === 0) {
                 setTimeout(() => $(".explanation").text("たたかえるポケモンはもういない..."), 500);
-                setTimeout(() => showscreen(start), 1500);
+                updatestatus(user_party, opp_party);
+                var user = document.getElementById("userpokemon");
+                user.classList.add("hidden");
+                var user1 = document.getElementById("friend");
+                user1.classList.add("hidden");
+                // setTimeout(() => showscreen(start), 1500);
                 return true;
             }
 
@@ -131,7 +139,7 @@ function processFaint(isUser) {
                 $(".explanation").text(user_pokemon.name + "をくりだした！");
                 updatePokemon(user_pokemon, opp_pokemon);
                 updateHP(user_pokemon, opp_pokemon);
-                updatestatus(user_party,opp_party);
+                updatestatus(user_party, opp_party);
                 enableButtons();
             }, 2000);
         }, 1000);
@@ -143,7 +151,12 @@ function processFaint(isUser) {
             if (opp_party.length === 0) {
                 setTimeout(() => {
                     $(".explanation").text("あいてを倒した！");
-                    setTimeout(() => { showscreen(start); }, 2000);
+                    updatestatus(user_party, opp_party);
+                    var enemy = document.getElementById("opppokemon");
+                    enemy.classList.add("hidden");
+                    var enemy1 = document.getElementById("enemy");
+                    enemy1.classList.add("hidden");
+                    // setTimeout(() => { showscreen(start); }, 2000);
                 }, 1000);
                 return true;
             }
@@ -153,7 +166,7 @@ function processFaint(isUser) {
                 $(".explanation").text("あいては" + opp_pokemon.name + "をくりだした！");
                 updatePokemon(user_pokemon, opp_pokemon);
                 updateHP(user_pokemon, opp_pokemon);
-                updatestatus(user_party,opp_party);
+                updatestatus(user_party, opp_party);
                 enableButtons();
             }, 2000);
         }, 1000);
@@ -166,7 +179,7 @@ function battlestart() {
     disableButtons();
     updateHP(user_pokemon, opp_pokemon);
     updatePokemon(user_pokemon, opp_pokemon);
-    updatestatus(user_party,opp_party);
+    updatestatus(user_party, opp_party);
 
     $(".explanation").text(user_pokemon.name + "をくりだした！");
     setTimeout(() => {
@@ -188,9 +201,9 @@ function battlestart() {
                 second = { p: user_pokemon, o: opp_pokemon, isUser: true };
             }
 
-            // 先攻
+            // 
             takeTurn(first.p, first.o, first.isUser ? index : Math.floor(Math.random() * first.p.moves.length));
-            // 先攻（first）が攻撃した結果、後攻（first.o）が倒れたか？
+            // 
             if (fainted(first.o) === true) {
 
 
@@ -204,7 +217,7 @@ function battlestart() {
 
             }
 
-            // 後攻
+            // 
             setTimeout(() => {
                 takeTurn(second.p, second.o, second.isUser ? index : Math.floor(Math.random() * second.p.moves.length));
                 if (fainted(second.o)) {
@@ -226,19 +239,19 @@ startbutton3.addEventListener("click", () => {
 });
 
 function rayquaza() {
-    
+
     const rayquaza1 = document.getElementById("rayquaza1");
     const rayquaza2 = document.getElementById("rayquaza2");
     const rayquaza3 = document.getElementById("rayquaza3");
     const rayquaza4 = document.getElementById("rayquaza4");
-    
+
     rayquaza1.classList.add("show");
-    
+
     setTimeout(() => rayquaza1.classList.remove("show"), 800);
-    
+
     setTimeout(() => rayquaza2.classList.add("show"), 800);
     setTimeout(() => rayquaza2.classList.remove("show"), 1600);
-    
+
     setTimeout(() => rayquaza3.classList.add("show"), 1600);
     setTimeout(() => rayquaza3.classList.remove("show"), 2400);
 
@@ -252,11 +265,11 @@ function dialga() {
     const dialga3 = document.getElementById("dialga3");
     const dialga4 = document.getElementById("dialga4");
     const dialga5 = document.getElementById("dialga5");
-    
+
     dialga1.classList.add("show");
-    
+
     setTimeout(() => dialga1.classList.remove("show"), 800);
-    
+
     setTimeout(() => dialga2.classList.add("show"), 800);
     setTimeout(() => dialga2.classList.remove("show"), 1600);
 

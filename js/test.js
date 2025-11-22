@@ -151,7 +151,7 @@ function gamestart() {
     currentquestion = randomword(questions);
     $(".question").text(currentquestion);
     // タイマーの機能をつける部分
-    timer = 60;
+    timer = 30;
     var countdown = setInterval(() => {
         timer--;
         $(".timer").text(timer);
