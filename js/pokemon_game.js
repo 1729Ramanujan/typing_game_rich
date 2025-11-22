@@ -1,3 +1,4 @@
+
 function disableButtons() {
     for (let i = 1; i <= 4; i++) {
         document.getElementById(`move${i}`).classList.add("hidden");

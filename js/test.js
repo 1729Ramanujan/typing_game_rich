@@ -151,7 +151,7 @@ function gamestart() {
     currentquestion = randomword(questions);
     $(".question").text(currentquestion);
     // タイマーの機能をつける部分
-    timer = 30;
+    timer = 20;
     var countdown = setInterval(() => {
         timer--;
         $(".timer").text(timer);
@@ -167,7 +167,7 @@ function gamestart() {
             gaging1 = 0;
             document.querySelector(".gaugecontent1").style.width = 0 + "%";
             var bonus = document.querySelector(".bonusstage");
-            if (finalscore >= 50) {
+            if (finalscore >= 10) {
                 bonus.classList.add("show");
             }
             $(".fever").html("");
